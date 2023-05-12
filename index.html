@@ -9,15 +9,56 @@
 </head>
 <body>
 
-    
-    <div class="top"></div>
-    <div class="container-header"></div>
+    <div class="app container light"></div>
+        <div class="content"></div>
+        
+        <div class="side">
+            <div class="user">
+                <img class="avatar" src="img/avatar_io.jpg" alt="">
+                <div class="name">Silvia</div>
+                <i class="fas fa-circle-notch btn"></i>
+                <i class="fas fa-comment-alt btn"></i>
+                <i class="fas fa-ellipsis-v btn"></i>
+            </div>
 
-    <div class="container-app">
-        <div class="top-bar">
-            <div class="row">
+            <div class="notifications"></div>
+
+            <div class="contacts">
+                <div class="search">
+                    <div class="input-group">
+                        <i class="fa fa-search icon"></i>
+                        <input type="text" class="input-search" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <ul class="contact-list">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="contact">
+                <img class="avatar" src="contacts[activeIndex].avatar" alt="">
+                <div class="info">
+                    <div class="name"></div>
+                    <div class="last-access"></div>
+                </div>
+                    <i class="fas fa-search btn"></i>
+					<i class="fas fa-paperclip btn"></i>
+					<i class="fas fa-ellipsis-v btn"></i>
+            </div>
+
+            <div class="message"></div>
+
+            <div class="add-message"></div>
+        </div>
+
+
+    
+    
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
