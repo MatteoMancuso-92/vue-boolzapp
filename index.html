@@ -8,54 +8,82 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="app container light" v-cloak>
+		<div class="content">
 
-    <div class="app container light"></div>
-        <div class="content"></div>
-        
-        <div class="side">
-            <div class="user">
-                <img class="avatar" src="img/avatar_io.jpg" alt="">
-                <div class="name">Silvia</div>
-                <i class="fas fa-circle-notch btn"></i>
-                <i class="fas fa-comment-alt btn"></i>
-                <i class="fas fa-ellipsis-v btn"></i>
-            </div>
+			<div class="side">
+				<div class="user">
+					<img class="avatar" src="img/avatar_io.jpg" alt="">
+					<div class="name">Sofia</div>
+					<i class="fas fa-circle-notch btn"></i>
+					<i class="fas fa-comment-alt btn"></i>
+					<i class="fas fa-ellipsis-v btn"></i>
+				</div>
 
-            <div class="notifications"></div>
+				<div class="notifications"></div>
 
-            <div class="contacts">
-                <div class="search">
-                    <div class="input-group">
-                        <i class="fa fa-search icon"></i>
-                        <input type="text" class="input-search" placeholder="Cerca o inizia una nuova chat">
-                    </div>
-                </div>
-                <ul class="contact-list">
-                    <li></li>
-                </ul>
-            </div>
-        </div>
+				<div class="contacts">
+					<div class="search">
+						<div class="input-group">
+							<i class="fa fa-search icon" aria-hidden="true"></i>
+							<input type="text" class="input-search"  placeholder="Cerca o inizia una nuova chat">
+						</div>
+					</div>
+					<ul class="contact-list">
+						<li
+							v-for="(contact, i) in contacts"
+							class="contact"
+							:class="{active: i == activeIndex}"
+							@click="setActiveIndex(contact)"
+						>
+							<img class="avatar" :src="contact.avatar" :alt="contact.name">
+							<div class="info">
+								<div class="name">{{ contact.name }}</div>
+								<div class="last-message">
+									Last message here
+								</div>
+							</div>
+							<div class="last-date">5/10/2022</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-        <div class="main">
-            <div class="contact">
-                <img class="avatar" src="contacts[activeIndex].avatar" alt="">
-                <div class="info">
-                    <div class="name"></div>
-                    <div class="last-access"></div>
-                </div>
-                    <i class="fas fa-search btn"></i>
+
+			<div class="main">
+				<div class="contact">
+					<img class="avatar" :src="contacts[activeIndex].avatar" alt="">
+					<div class="info">
+						<div class="name">{{ contacts[activeIndex].name }}</div>
+						<div class="last-access">Ultimo accesso TODO</div>
+					</div>
+					<i class="fas fa-search btn"></i>
 					<i class="fas fa-paperclip btn"></i>
 					<i class="fas fa-ellipsis-v btn"></i>
-            </div>
+				</div>
 
-            <div class="message"></div>
+				<div class="messages">
+					<div
+						v-for="objMessage in contacts[activeIndex].messages"
+						class="message"
+						:class="objMessage.status == 'sent' ? 'sent' : 'received'"
+					>
+						<div class="text">
+							{{ objMessage.message }}
+						</div>
+						<div class="date">{{ extractTimeFromDate(objMessage.date) }}</div>
+					</div>
+				</div>
 
-            <div class="add-message"></div>
-        </div>
+				<div class="add-message">
+					<i class="far fa-smile btn"></i>
+					<input type="text" class="message-text" placeholder="Scrivi un messaggio">
+					<i class="fa fa-microphone btn"></i>
+				</div>
+			</div>
 
-
-    
-    
+		</div>
+	</div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>

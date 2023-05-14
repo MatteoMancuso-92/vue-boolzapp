@@ -4,3 +4,262 @@
     box-sizing: border-box;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: linear-gradient(
+		to bottom,
+		rgb(0%, 59%, 53%) 15%,
+        rgb(92%, 92%, 92%) 15%
+	);
+}
+
+.btn {
+	padding: .4em;
+	color: rgb(177, 177, 177);
+	font-size: 1.5rem;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.content {
+	display: flex;
+	height: 85%;
+	width: 95%;
+	max-width: 950px;
+}
+
+.side {
+	display: flex;
+	flex-direction: column;
+	width: 35%;
+	height: 100%;
+	border-inline-end: 1px solid rgb(136, 136, 136);
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 65%;
+	height: 100%;
+}
+
+.side .user {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	background-color: rgb(234, 234, 234);
+}
+
+.side .notifications {
+	flex: 0 0 4rem;
+	background-color: rgb(142, 218, 252);
+}
+
+.side .contacts {
+	flex: 1 0 0;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}
+
+.main .contact {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	background-color: rgb(234, 234, 234);
+}
+
+.main .messages {
+	flex: 1 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem 3rem;
+	overflow-y: scroll;
+	background-image: url('img/mine.jpg');
+}
+
+.main .add-message {
+	flex: 0 0 4rem;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	background-color: whitesmoke;
+}
+
+/* user section */
+
+.side .user .avatar {
+	padding: .5em;
+	height: 100%;
+	border-radius: 9em;
+}
+
+.side .user .name {
+	flex-grow: 1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* messages section */
+
+
+
+/* contacts list section */
+
+.side .contacts .search {
+	flex: 0 0 auto;
+	padding: .5rem;
+	background-color: whitesmoke;
+}
+
+.side .contacts .input-group {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .5rem;
+	background-color: white;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 5px;
+}
+
+.side .contacts .input-group:focus-within {
+	outline: auto;
+}
+
+.side .contacts .icon {
+	color: rgb(177, 177, 177);
+}
+
+.side .contacts .input-search {
+	flex: 1 0 0;
+	min-width: 0;
+	background-color: white;;
+	border: none;
+}
+
+.side .contacts .input-search:focus {
+	outline: none;
+}
+
+.side .contacts .contact-list {
+	flex: 1 0 0;
+	overflow-y: scroll;
+}
+
+.side .contacts .contact {
+	display: flex;
+	height: 5rem;
+	padding: .5rem;
+	border-top: 1px solid rgb(221, 221, 221);
+}
+
+.side .contacts .contact.active {
+	background-color: rgb(136, 136, 136);
+}
+
+.side .contacts .contact:hover {
+	background-color: rgb(177, 177, 177);
+	cursor: pointer;
+}
+
+.side .contacts .avatar {
+	height: 100%;
+	border-radius: 9em;
+}
+
+.side .contacts .info {
+	flex-grow: 1;
+	min-width: 0;
+	padding-inline: .5rem;
+}
+
+.side .contacts .name,
+.side .contacts .last-message {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.side .contacts .last-date,
+.side .contacts .last-message {
+	color: rgb(182, 185, 187);
+	font-size: .8rem;
+}
+
+
+/* contact section */
+
+.main .contact .avatar {
+	padding: .5em;
+	height: 100%;
+	border-radius: 9em;
+}
+
+.main .contact .info {
+	flex-grow: 1;
+	min-width: 0;
+}
+
+.main .contact .name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.main .contact .last-access {
+	font-size: .8rem;
+	color: rgb(217, 219, 213);
+}
+
+
+
+/* messages section */
+
+.main .messages .message {
+	max-width: 60%;
+	border-radius: 5px;
+}
+
+.main .messages .text {
+	padding: 1.2em;
+	padding-bottom: 0;
+}
+
+.main .messages .sent {
+	align-self: flex-end;
+	background-color: rgb(255, 255, 255);
+}
+
+.main .messages .received {
+	align-self: flex-start;
+	background-color: rgb(213, 249, 186);
+}
+
+.main .messages .date {
+	text-align: end;
+	padding: .5em;
+	color: rgb(182, 185, 187);
+	font-size: .7rem;
+}
+
+
+
+/* add new message section */
+
+.main .add-message .message-text {
+	flex: 1 0 0;
+	min-width: 0;
+	padding: 1rem;
+	background-color: white;
+	border: 1px solid whitesmoke;
+	border-radius: 5px;
+}
